@@ -3,7 +3,7 @@ const path = require('path')
 const hbs = require('hbs')
 const forecast = require('./util/forecast')
 const geocode = require('./util/geocode')
-const port = process.env.PORT
+const port = process.env.PORT || 3000
 
 console.log(__dirname)
 console.log(path.join(__dirname, "../public"))
@@ -63,6 +63,7 @@ app.get('/weather', (req, res) => {
 
             res.send({
                 temperature: r.temperature,
+                humidity: r.humidity,
                 address: req.query.address
             })
         })

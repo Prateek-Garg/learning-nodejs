@@ -10,7 +10,7 @@ const forecast = (latitude, longitude, callback) => {
         } else if (response.body.error) {
             callback('No record found', undefined)
         } else {
-            callback(undefined, {temperature: response.body.current.temperature})
+            callback(undefined, {temperature: response.body.current.temperature, humidity: response.body.current.humidity})
         }
     })
 }
